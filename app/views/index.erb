@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container" id='allurls'>
   <h1>Welcome to Bitly!!!</h1>
   
   <% if params[:short_link] %>
-    <% new_url = "http://" + request.host + ":" + request.port.to_s + "/" + params[:short_link] %>
+    <% new_url = "http://#{request.host}:#{request.port.to_s}/#{params[:short_link]}" %>
     Your new link is <a href=<%= new_url %>><%= new_url %></a>
   <% end %>
 

@@ -9,7 +9,8 @@ post '/submiturl' do
 end
 
 get '/all_urls' do
-  Url.all
+  @all_urls = Url.all
+  erb :all_urls
 end
 
 get '/:short_url' do
