@@ -1,11 +1,12 @@
 <div class="container" id='allurls'>
   <h1>Here are all the links users have bitified:</h1>
   <% @all_urls.each do |url| %> 
-  <% next if url.short_link == nil %>
-  <% new_url = "http://#{request.host.to_s}:#{request.port.to_s}/" + url.short_link %> 
-  <ul>
-  <li><a href=<%= new_url %>><%= new_url%></a></li>
-  </ul>
+    <% next if url.short_link == nil %>
+    <% new_url = "http://#{request.host.to_s}:#{request.port.to_s}/" + url.short_link %> 
+  
+    <ul>
+      <li><a href=<%= new_url %>><%= new_url%></a></li>
+    </ul>
   <% end %>
 
 </div>
