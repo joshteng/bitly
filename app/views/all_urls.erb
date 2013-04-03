@@ -4,7 +4,7 @@
   <% next if url.short_link == nil %>
   <% new_url = "http://#{request.host.to_s}:#{request.port.to_s}/" + url.short_link %> 
   <ul>
-  <li><%= new_url%></li>
+  <li><a href=<%= new_url %>><%= new_url%></a></li>
   </ul>
   <% end %>
 

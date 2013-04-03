@@ -14,7 +14,6 @@ get '/all_urls' do
 end
 
 get '/:short_url' do
-
-# redirect to ''
-
+  actual_url = Url.find_by_short_link(params[:short_url]).link
+  redirect to "http://#{actual_url}"
 end
