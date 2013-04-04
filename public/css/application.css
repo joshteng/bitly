@@ -1,9 +1,65 @@
+body {
+  background-color: rgba(9,33,64,0.6)
+
+}
+
 .container {
   margin: 20px auto;
   width: 600px;
   padding: 0px 20px 20px 20px;
   border: 1px dotted black;
+  color: white;
+
 }
+
+nav {
+  width: 100%;
+  position: fixed;
+  top:0;
+  left:0;
+  right:0;
+  height: 50px;
+  margin-top: 10px;
+}
+
+nav ul {
+  float: right;
+  list-style: none;
+}
+
+nav ul li {
+  display: inline;
+  padding-right: 8px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  padding: 7px 15px;
+  background-color: rgba(242,71,56,1);
+  color: white;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+#logout {
+  display: inline;
+  padding-right: 8px;
+}
+
+#logout .navbutton {
+  text-decoration: none;
+  padding: 7px 15px;
+  background-color: rgba(242,71,56,1);
+  color: white;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: none;
+}
+
+.container {
+  margin-top: 80px;
+}
+
 th {
   text-align: left;
 }

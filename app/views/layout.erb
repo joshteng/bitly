@@ -22,9 +22,9 @@
     <ul>
       <li><a href="/">Home</a></li>
       <% if login? %>
-        <li><form action='/logout', method='post'>
-          <input name="_method" value='delete', type='hidden'>
-          <input type='submit', value='Logout'>
+        <li><form action='/logout', method='post' id='logout'>
+          <input name="_method" value='delete' type='hidden'>
+          <input type='submit' value='Logout' class='navbutton'>
         </form>
       </li>
       <% else %>

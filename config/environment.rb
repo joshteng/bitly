@@ -23,6 +23,10 @@ require "sinatra/reloader" if development?
 
 require 'erb'
 require 'bcrypt'
+require 'sinatra'
+
+require 'sass'
+require 'compass'
 
 
 # Some helper constants for path-centric logic
@@ -36,3 +40,13 @@ Dir[APP_ROOT.join('app', 'helpers', '*.rb')].each { |file| require file }
 
 # Set up the database and models
 require APP_ROOT.join('config', 'database')
+
+
+configure do
+  Compass.configuration do |config|
+    config.project_path = File.dirname(__FILE__)
+    config.sass_dir = 'public/css'
+  end
+
+  set :scss, Compass.sass_engine_options
+end

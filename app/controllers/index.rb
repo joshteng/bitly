@@ -1,5 +1,9 @@
 enable :sessions
 
+get '/scss.css' do
+  scss :scss_file
+end
+
 get '/' do
   # Look in app/views/index.erb
   @error = session.delete(:error)

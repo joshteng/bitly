@@ -19,6 +19,8 @@ gem 'shotgun'
 
 gem 'debugger'
 gem 'bcrypt-ruby'
+gem 'sass'
+gem 'compass'
 
 
 group :test do
