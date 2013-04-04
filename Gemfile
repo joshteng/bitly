@@ -18,6 +18,8 @@ gem 'rake'
 gem 'shotgun'
 
 gem 'debugger'
+gem 'bcrypt-ruby'
+
 
 group :test do
   gem 'faker'

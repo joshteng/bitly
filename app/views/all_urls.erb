@@ -1,5 +1,6 @@
 <div class="container" id='allurls'>
-  <h1>Here are all the links users have bitified:</h1>
+  <h3>Welcome, <%= @current_user.email %>!</h3>
+  <h2>Here are all the links users have bitified:</h2>
   <% @all_urls.each do |url| %> 
     <% next if url.short_link == nil %>
     <% new_url = "http://#{request.host.to_s}:#{request.port.to_s}/" + url.short_link %> 

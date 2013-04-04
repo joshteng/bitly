@@ -17,9 +17,19 @@ post '/submiturl' do
   end
 end
 
+#################check if logined
+before '/all_urls' do
+  redirect '/login' unless login?
+end
+
 get '/all_urls' do
   @all_urls = Url.all
+  @current_user = User.find(session[:current_user_id])
   erb :all_urls
+end
+
+get '/login' do
+  erb :login
 end
 
 get '/:short_url' do
@@ -28,3 +38,17 @@ get '/:short_url' do
   # Url.update_counters(actual_url.id, visits: 1 )
   redirect to "#{actual_url.link}"
 end
+
+post '/login' do
+  user = User.find_by_email(params[:login][:email])
+  if user && valid_password?(user, params[:login][:password])
+    session.delete(:error)
+    session[:current_user_id] = user.id
+    redirect '/all_urls'
+  else
+    session[:error] = "Wrong email/password"
+    redirect '/login'
+  end
+end
+
+
