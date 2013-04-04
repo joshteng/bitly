@@ -1,0 +1,19 @@
+<div class="container" id='allurls'>
+  <h1>Welcome to Bitly!!!</h1>
+
+    <% if @error %>
+      <%= "ERROR: " + @error %>
+    <% end %>
+  
+  
+  <% if @url.present? %>
+    <% new_url = to "/#{@url.short_link}" %>
+    Your new link is <a href=<%= new_url %>><%= new_url %></a>
+  <% end %>
+
+  <p>Enter your link:</p>
+  <form action='/submiturl' method='post'>
+    <input type='text' name='url[link]'>
+    <input type='submit' value='Submit'>
+  </form>
+</div>
