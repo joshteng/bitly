@@ -32,6 +32,22 @@ get '/login' do
   erb :login
 end
 
+get '/signup' do
+  erb :signup
+end
+
+post '/signup' do
+  user = User.new(params[:user])
+  if user.save
+    login(user)
+    redirect '/all_urls'
+  else
+    session[:error] = "Try again"
+    erb :signup
+  end
+end
+
+
 get '/:short_url' do
   actual_url = Url.find_by_short_link!(params[:short_url])
   actual_url.increment!(:visits)
@@ -43,7 +59,7 @@ post '/login' do
   user = User.find_by_email(params[:login][:email])
   if user && valid_password?(user, params[:login][:password])
     session.delete(:error)
-    session[:current_user_id] = user.id
+    login(user)
     redirect '/all_urls'
   else
     session[:error] = "Wrong email/password"
@@ -51,4 +67,7 @@ post '/login' do
   end
 end
 
-
+delete '/logout' do
+  session[:current_user_id] = nil
+  redirect '/'
+end

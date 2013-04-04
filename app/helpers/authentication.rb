@@ -6,4 +6,8 @@ helpers do
   def login?
     session[:current_user_id] ? true : false
   end
+
+  def login(user)
+    session[:current_user_id] = user.id
+  end
 end

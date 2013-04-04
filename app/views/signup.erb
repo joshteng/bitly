@@ -1,0 +1,15 @@
+<div class="container" id='signup'>
+  <% if session[:error] %>
+    <%= session[:error] %>
+  <% end %>
+
+  <h1>Sign up to see the secret page ;)</h1>
+
+  <form action='/signup' method='post'>
+    <br>
+    <input type='text' name='user[email]' placeholder = 'your email'>
+    <input type='text' name='user[password]' placeholder = 'your password'>
+    <input type='text' name='user[password_confirmation]' placeholder = 'confirm your password'>
+    <input type='submit' value='Submit'>
+  </form>
+</div>

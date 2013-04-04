@@ -18,6 +18,21 @@
   <title></title>
 </head>
 <body>
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <% if login? %>
+        <li><form action='/logout', method='post'>
+          <input name="_method" value='delete', type='hidden'>
+          <input type='submit', value='Logout'>
+        </form>
+      </li>
+      <% else %>
+        <li><a href="login">Login</a></li>
+        <li><a href='signup'>Sign up</a></li>
+      <% end %>
+    </ul>
+  </nav>
   <%= yield %>
 </body>
 </html>

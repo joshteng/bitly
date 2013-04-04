@@ -1,5 +1,5 @@
 <div class="container" id='allurls'>
-  <h1>Welcome to Bitly!!!</h1>
+  <h1>Shorten that URLLL</h1>
 
     <% if @error %>
       <%= "ERROR: " + @error %>
@@ -11,9 +11,8 @@
     Your new link is <a href=<%= new_url %>><%= new_url %></a>
   <% end %>
 
-  <p>Enter your link:</p>
   <form action='/submiturl' method='post'>
-    <input type='text' name='url[link]'>
-    <input type='submit' value='Submit'>
+    <input type='text' name='url[link]' placeholder='Enter your link'>
+    <input type='submit' value='BITIFY!'>
   </form>
 </div>
