@@ -5,7 +5,7 @@
     <% new_url = "http://#{request.host.to_s}:#{request.port.to_s}/" + url.short_link %> 
   
     <ul>
-      <li><a href=<%= new_url %>><%= new_url%></a></li>
+      <li><a href=<%= new_url %>><%= new_url%></a> | <%= url.link %> | <%= url.visits %> clicks.</li>
     </ul>
   <% end %>
 
