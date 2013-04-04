@@ -21,7 +21,7 @@ gem 'debugger'
 gem 'bcrypt-ruby'
 gem 'sass'
 gem 'compass'
-
+gem 'rspec'
 
 group :test do
   gem 'faker'
