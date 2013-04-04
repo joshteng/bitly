@@ -20,8 +20,9 @@
 <body>
   <nav>
     <ul>
-      <li><a href="/">Home</a></li>
+      <li><a href="/">Bitify!</a></li>
       <% if login? %>
+        <li><a href='/all_urls'>See your links</a></li>
         <li><form action='/logout', method='post' id='logout'>
           <input name="_method" value='delete' type='hidden'>
           <input type='submit' value='Logout' class='navbutton'>

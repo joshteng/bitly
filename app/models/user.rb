@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
                     format: { with: email_regex }
 
 
+  has_many :urls
+
   private
 
   def hash_password

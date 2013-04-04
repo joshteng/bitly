@@ -6,6 +6,8 @@ class Url < ActiveRecord::Base
   validates :link, presence: true
   validate :link_is_visitable
 
+  belongs_to :user
+
   private
 
   def include_http

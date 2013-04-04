@@ -1,9 +1,5 @@
 enable :sessions
 
-get '/scss.css' do
-  scss :scss_file
-end
-
 get '/' do
   # Look in app/views/index.erb
   @error = session.delete(:error)
@@ -11,14 +7,12 @@ get '/' do
 end
 
 post '/submiturl' do
-  @url = Url.new(params[:url])
-
-  if @url.save
-    erb :index
+  if session[:current_user_id]
+    @url = current_user.urls.new(params[:url])
   else
-    session[:error] = @url.errors.full_messages.to_sentence
-    redirect '/'
+    @url = Url.new(params[:url])
   end
+  save_url(@url)
 end
 
 #################check if logined
@@ -27,7 +21,7 @@ before '/all_urls' do
 end
 
 get '/all_urls' do
-  @all_urls = Url.all
+  @all_urls = current_user.urls
   @current_user = User.find(session[:current_user_id])
   erb :all_urls
 end
@@ -74,4 +68,15 @@ end
 delete '/logout' do
   session[:current_user_id] = nil
   redirect '/'
+end
+
+
+
+def save_url(url)
+  if url.save
+    erb :index
+  else
+    session[:error] = @url.errors.full_messages.to_sentence
+    redirect '/'
+  end
 end
